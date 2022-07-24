@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_nav_graph"
+        android:title="Главная"
+        android:contentDescription="HomeFragment"
+        android:icon="@drawable/ic_home_line"/>
+
+    <item
+        android:id="@+id/favorite_nav_graph"
+        android:title="Избранное"
+        android:contentDescription="FavoriteFragment"
+        android:icon="@drawable/ic_heart_line"/>
+
+    <item
+        android:id="@+id/account_nav_graph"
+        android:title="Профиль"
+        android:contentDescription="AccountFragment"
+        android:icon="@drawable/ic_smile_line"/>
+
+</menu>

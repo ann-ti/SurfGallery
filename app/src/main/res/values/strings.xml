@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Surf Gallery</string>
+
+    <string name="login_empty_error">Поле не может быть пустым</string>
+    <string name="password_empty_error">Поле не может быть пустым</string>
+    <string name="login_not_valid_error">Не верный формат номера телефона</string>
+    <string name="password_not_valid_error">Пароль должен быть от 6 до 255 символов</string>
+    <string name="auth_error_text">Логин или пароль введен неправильно</string>
+
+</resources>

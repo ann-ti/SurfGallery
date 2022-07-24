@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txtAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Профиль"
+        android:textAppearance="@style/Text.SemiBold.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgAccount"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/placeholder_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAccount" />
+
+    <TextView
+        android:id="@+id/txtAccountName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Имя фамилия"
+        android:textAppearance="@style/Text.Medium.18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
+        app:layout_constraintTop_toTopOf="@+id/imgAccount" />
+
+    <TextView
+        android:id="@+id/txtAbout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Статус"
+        android:textAppearance="@style/Text.LightItalic.12"
+        android:layout_marginEnd="16dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
+        app:layout_constraintTop_toBottomOf="@+id/txtAccountName" />
+
+    <TextView
+        android:id="@+id/txtCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Город"
+        android:textAppearance="@style/Text.Regular.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAccount" />
+
+    <TextView
+        android:id="@+id/txtEditCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some City"
+        android:textAppearance="@style/Text.Regular.18"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCity" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEditCity" />
+
+
+    <TextView
+        android:id="@+id/txtNumberTelephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Телефон"
+        android:textAppearance="@style/Text.Regular.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+    <TextView
+        android:id="@+id/txtEditNumberTelephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+7 999 99 99"
+        android:textAppearance="@style/Text.Regular.18"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumberTelephone" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#F0F0F0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEditNumberTelephone" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Почта"
+        android:textAppearance="@style/Text.Regular.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/txtEditEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="surf@surf.ru"
+        android:textAppearance="@style/Text.Regular.18"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#F0F0F0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEditEmail" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Выйти"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.annti.surfgallery.presentation.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_navigatorFragment"
+            app:destination="@id/navigatorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigatorFragment"
+        android:name="com.annti.surfgallery.presentation.navigator.NavigatorFragment"
+        android:label="NavigatorFragment"
+        tools:layout="@layout/fragment_navigate">
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.annti.surfgallery.presentation.auth.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_navigatorFragment"
+            app:destination="@id/navigatorFragment" />
+    </fragment>
+</navigation>
