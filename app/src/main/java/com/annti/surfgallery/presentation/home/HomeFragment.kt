@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annti.surfgallery.R
 import com.annti.surfgallery.data.model.Picture
@@ -65,7 +67,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
     }
 
     override fun onItemSelected(item: Picture) {
-        TODO("Not yet implemented")
+        val titleHome = "Галерея"
+        val bundle = Bundle()
+        bundle.putParcelable("item", item)
+        bundle.putString("title", titleHome)
+        val navController = Navigation.findNavController(
+            requireActivity(),
+            R.id.activityNavHost
+        )
+        navController.navigate(R.id.detailsFragment, bundle)
     }
 
     override fun addToFavorite(item: Picture) {

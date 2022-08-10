@@ -43,9 +43,12 @@ class GalleryAdapterDelegate(private val itemSelected: ItemSelected) :
             binding.buttonFavorite.setOnClickListener {
                 itemSelected.addToFavorite(picture)
             }
-            if (picture.isFavorite){
+            view.setOnClickListener {
+                itemSelected.onItemSelected(picture)
+            }
+            if (picture.isFavorite) {
                 binding.buttonFavorite.setImageResource(R.drawable.ic_heart_fill)
-            }else{
+            } else {
                 binding.buttonFavorite.setImageResource(R.drawable.ic_heart_line)
             }
             binding.txtTitleGallery.text = picture.title
@@ -55,7 +58,6 @@ class GalleryAdapterDelegate(private val itemSelected: ItemSelected) :
                 .placeholder(R.drawable.placeholder_image)
                 .into(binding.imageGallery)
         }
-
     }
 
     interface ItemSelected {

@@ -22,6 +22,9 @@
         android:name="com.annti.surfgallery.presentation.navigator.NavigatorFragment"
         android:label="NavigatorFragment"
         tools:layout="@layout/fragment_navigate">
+        <action
+            android:id="@+id/action_navigatorFragment_to_detailsFragment2"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -32,4 +35,8 @@
             android:id="@+id/action_loginFragment_to_navigatorFragment"
             app:destination="@id/navigatorFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.annti.surfgallery.presentation.details.DetailsFragment"
+        android:label="DetailsFragment" />
 </navigation>

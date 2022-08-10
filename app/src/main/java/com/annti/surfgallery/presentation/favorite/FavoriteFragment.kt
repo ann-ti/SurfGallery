@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annti.surfgallery.R
 import com.annti.surfgallery.data.model.Picture
@@ -57,7 +58,15 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite),
     }
 
     override fun onItemSelected(item: Picture) {
-        TODO("Not yet implemented")
+        val titleHome = "Мои избранные"
+        val bundle = Bundle()
+        bundle.putParcelable("item", item)
+        bundle.putString("title", titleHome)
+        val navController = Navigation.findNavController(
+            requireActivity(),
+            R.id.activityNavHost
+        )
+        navController.navigate(R.id.detailsFragment, bundle)
     }
 
     override fun removeFavorite(item: Picture) {

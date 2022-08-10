@@ -24,6 +24,15 @@
         <entry key="..\:/SurfGalerryApp/app/src/main/res/layout/loader_button_view.xml" value="0.25416666666666665" />
         <entry key="..\:/SurfGalerryApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/SurfGalerryApp/app/src/main/res/xml/network_security_config.xml" value="0.1" />
+        <entry key="..\:/SurfGallery/app/src/main/res/drawable/ic_back.xml" value="0.1295" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/fragment_account.xml" value="0.22146739130434784" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/fragment_details.xml" value="0.152" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/fragment_favorite.xml" value="0.25416666666666665" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/fragment_login.xml" value="0.12360688956433637" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/item_favorite.xml" value="0.24010416666666667" />
+        <entry key="..\:/SurfGallery/app/src/main/res/layout/item_gallery.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>

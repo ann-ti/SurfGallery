@@ -44,6 +44,9 @@ class FavoriteAdapterDelegate(private val itemSelected: ItemSelected) :
             binding.buttonFavorite.setOnClickListener {
                 itemSelected.removeFavorite(picture)
             }
+            view.setOnClickListener {
+                itemSelected.onItemSelected(picture)
+            }
             view.setOnClickListener { itemSelected.onItemSelected(picture) }
             binding.txtDescriptionFavorite.text = picture.content
             binding.txtDateFavorite.text = dateFormat(picture.publicationDate)

@@ -30,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:textSize="12sp"
+        android:textAppearance="@style/Text.Medium.12"
         android:maxLines="1"
         android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
