@@ -17,6 +17,9 @@ interface GalleryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun savePicture(picture: Picture)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun savePictureList(pictureList: List<Picture>)
+
     @Delete
     suspend fun removePicture(picture: Picture)
 

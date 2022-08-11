@@ -37,6 +37,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
 
         setRecyclerViewGallery()
         getGalleryList()
+        goToSearch()
     }
 
     private fun setRecyclerViewGallery() {
@@ -63,6 +64,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
 
         viewModel.error.observe(viewLifecycleOwner) {
             Toast.makeText(context, "Error: $it", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun goToSearch(){
+        binding.toolbar.setOnMenuItemClickListener {
+            val navController = Navigation.findNavController(
+                requireActivity(),
+                R.id.activityNavHost
+            )
+            navController.navigate(R.id.fragmentSearch)
+            true
         }
     }
 

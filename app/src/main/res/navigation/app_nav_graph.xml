@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_navigatorFragment_to_detailsFragment2"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_navigatorFragment_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -38,5 +41,11 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.annti.surfgallery.presentation.details.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"/>
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.annti.surfgallery.presentation.search.FragmentSearch"
+        android:label="FragmentSearch"
+        tools:layout="@layout/fragment_search"/>
 </navigation>

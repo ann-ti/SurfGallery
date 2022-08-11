@@ -19,4 +19,12 @@
     <style name="DefaultTextInputEditText">
         <item name="android:textAppearance">@style/Text.Medium.16</item>
     </style>
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@drawable/background_search</item>
+        <item name="closeIcon">@drawable/ic_close_circle</item>
+        <item name="searchIcon">@drawable/ic_search_line</item>
+        <item name="android:queryHint">"Поиск"</item>
+        <item name="android:textColorHint">@color/gray_search_hint</item>
+    </style>
 </resources>
