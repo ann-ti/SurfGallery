@@ -7,6 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.annti.surfgallery.data.model.Picture
 import com.annti.surfgallery.domain.GalleryUseCase
 import com.hadilq.liveevent.LiveEvent
+import kotlinx.coroutines.flow.forEach
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class GalleryViewModel(
@@ -27,25 +30,21 @@ class GalleryViewModel(
     fun getGalleryList() {
         viewModelScope.launch {
             try {
-                val result = galleryUseCase.getPicture()
-                galleryListLiveData.postValue(result.apply {
-                    galleryUseCase.getFavorites()
-                })
+                galleryUseCase.getPicture()
             } catch (e: Throwable) {
                 errorData.postValue("getGalleryList(): $e")
             }
         }
     }
 
-    fun getPictureId(pictureId: String) {
-        viewModelScope.launch {
+    fun getGalleryListDb(){
             try {
-                galleryUseCase.getPictureId(pictureId)
+                galleryUseCase.getPictureDb()
+                    .onEach { galleryListLiveData.postValue(it) }
+                    .launchIn(viewModelScope)
             } catch (e: Throwable) {
-                errorData.postValue("Нам не удалось обработать ваш запрос. Произошла ошибка: ${e.message}. Попробуйте еще раз")
-                errorViewData.postValue(true)
+                errorData.postValue("getGalleryList(): $e")
             }
-        }
     }
 
     fun saveOrRemovePicture(picture: Picture) {
@@ -64,10 +63,10 @@ class GalleryViewModel(
     fun savePicture(picture: Picture) {
         viewModelScope.launch {
             try {
-                galleryUseCase.savePicture(picture.apply {
+                val favPic = galleryUseCase.getPictureId(picture.id).apply {
                     this.isFavorite = true
-                })
-                galleryUseCase.updatePicture(picture)
+                }
+                galleryUseCase.updatePicture(favPic)
             } catch (e: Throwable) {
                 errorData.postValue("savePicture: $e")
             }
@@ -77,15 +76,13 @@ class GalleryViewModel(
     fun removePicture(picture: Picture) {
         viewModelScope.launch {
             try {
-                galleryUseCase.removePicture(picture.apply {
+                val favPic = galleryUseCase.getPictureId(picture.id).apply {
                     this.isFavorite = false
-                })
-                galleryUseCase.updatePicture(picture)
+                }
+                galleryUseCase.updatePicture(favPic)
             } catch (e: Throwable) {
                 errorData.postValue("removePicture: $e")
             }
         }
     }
-
-
 }

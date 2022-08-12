@@ -14,10 +14,10 @@ interface GalleryDao {
     @Query("SELECT * FROM picture WHERE id=:pictureId")
     suspend fun getPicture(pictureId: String): Picture
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun savePicture(picture: Picture)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun savePictureList(pictureList: List<Picture>)
 
     @Delete
@@ -27,5 +27,5 @@ interface GalleryDao {
     suspend fun updatePicture(picture: Picture)
 
     @Update
-    suspend fun updatePictureList(picture: List<Picture>)
+    suspend fun updatePictureList(pictureList: List<Picture>)
 }

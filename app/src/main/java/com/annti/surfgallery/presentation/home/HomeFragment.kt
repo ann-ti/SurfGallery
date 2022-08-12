@@ -57,6 +57,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
     }
 
     private fun getGalleryList() {
+        viewModel.getGalleryListDb()
         viewModel.getGalleryList()
         viewModel.galleryList.observe(viewLifecycleOwner) {
             adapterGallery?.items = it

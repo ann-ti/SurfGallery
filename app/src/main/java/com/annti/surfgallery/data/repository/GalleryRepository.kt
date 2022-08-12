@@ -10,53 +10,59 @@ import kotlinx.coroutines.withContext
 interface GalleryRepository {
 
     suspend fun getPicture(): List<Picture>
-    fun getFavorites(): Flow<List<Picture>>
+    fun getPictureDb(): Flow<List<Picture>>
     suspend fun getPicture(pictureId: String): Picture
     suspend fun savePicture(picture: Picture)
     suspend fun removePicture(picture: Picture)
     suspend fun updatePicture(picture: Picture)
-    suspend fun updatePictureList(picture: List<Picture>)
 }
 
 class GalleryRepositoryImpl(
     private val galleryApi: GalleryApi
 ) : GalleryRepository {
 
-    private val favPictureDao = Database.instance.favPictureDao()
+    private val galleryDao = Database.instance.galleryDao()
 
-    override suspend fun getPicture(): List<Picture> =
-        galleryApi.getPicture()
+    override suspend fun getPicture(): List<Picture> {
+        return try {
+            galleryApi.getPicture().apply {
+                if (!this.isNullOrEmpty()){
+                    withContext(Dispatchers.IO){
+                        galleryDao.savePictureList(this@apply)
+                        galleryDao.updatePictureList(this@apply)
+                    }
+                }
+            }
+        } catch (e: Throwable){
+            emptyList()
+        }
+    }
 
-    override fun getFavorites(): Flow<List<Picture>> =
-        favPictureDao.getFavorites()
+
+    override fun getPictureDb(): Flow<List<Picture>> =
+        galleryDao.getFavorites()
 
 
     override suspend fun savePicture(picture: Picture) {
         withContext(Dispatchers.IO) {
-            favPictureDao.savePicture(picture)
+            galleryDao.savePicture(picture)
         }
     }
 
     override suspend fun getPicture(pictureId: String): Picture =
         withContext(Dispatchers.IO) {
-            favPictureDao.getPicture(pictureId)
+            galleryDao.getPicture(pictureId)
         }
 
     override suspend fun updatePicture(picture: Picture) {
         withContext(Dispatchers.IO) {
-            favPictureDao.updatePicture(picture)
-        }
-    }
-
-    override suspend fun updatePictureList(picture: List<Picture>) {
-        withContext(Dispatchers.IO) {
-            favPictureDao.updatePictureList(picture)
+            galleryDao.updatePicture(picture)
         }
     }
 
     override suspend fun removePicture(picture: Picture) {
         withContext(Dispatchers.IO) {
-            favPictureDao.removePicture(picture)
+            galleryDao.removePicture(picture)
         }
     }
 }

@@ -11,7 +11,7 @@ import com.annti.surfgallery.data.model.Picture
 )
 abstract class GalleryDatabase : RoomDatabase() {
 
-    abstract fun favPictureDao(): GalleryDao
+    abstract fun galleryDao(): GalleryDao
 
     companion object {
         const val DB_VERSION = 1

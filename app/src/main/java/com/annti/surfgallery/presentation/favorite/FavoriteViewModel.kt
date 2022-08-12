@@ -6,10 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.annti.surfgallery.data.model.Picture
 import com.annti.surfgallery.domain.GalleryUseCase
 import com.hadilq.liveevent.LiveEvent
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 
 class FavoriteViewModel(
     private val galleryUseCase: GalleryUseCase
@@ -27,9 +24,12 @@ class FavoriteViewModel(
         get() = errorViewData
 
     fun getFavorites() {
-        galleryUseCase.getFavorites()
+        galleryUseCase.getPictureDb()
             .onEach {
-                pictureMutableState.value = it
+                val vfbg = it.filter {
+                    it.isFavorite
+                }
+                pictureMutableState.value = vfbg
             }
             .launchIn(viewModelScope)
     }

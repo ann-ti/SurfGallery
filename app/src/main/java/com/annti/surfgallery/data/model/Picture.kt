@@ -22,5 +22,5 @@ data class Picture (
     val photoUrl: String,
     @Json(name = "publicationDate")
     val publicationDate: Long,
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean
 ): Parcelable
