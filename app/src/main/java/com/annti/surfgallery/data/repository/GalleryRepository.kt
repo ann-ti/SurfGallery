@@ -15,6 +15,7 @@ interface GalleryRepository {
     suspend fun savePicture(picture: Picture)
     suspend fun removePicture(picture: Picture)
     suspend fun updatePicture(picture: Picture)
+    suspend fun search(query: String): List<Picture>
 }
 
 class GalleryRepositoryImpl(
@@ -59,6 +60,10 @@ class GalleryRepositoryImpl(
             galleryDao.updatePicture(picture)
         }
     }
+
+    override suspend fun search(query: String): List<Picture> =
+        galleryDao.search(query)
+
 
     override suspend fun removePicture(picture: Picture) {
         withContext(Dispatchers.IO) {

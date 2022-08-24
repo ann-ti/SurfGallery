@@ -9,6 +9,7 @@ import com.annti.surfgallery.domain.*
 import com.annti.surfgallery.presentation.auth.LoginViewModel
 import com.annti.surfgallery.presentation.favorite.FavoriteViewModel
 import com.annti.surfgallery.presentation.home.GalleryViewModel
+import com.annti.surfgallery.presentation.search.SearchViewModel
 import com.annti.surfgallery.utils.MoshiInstantAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -113,6 +114,12 @@ val appModule = module {
 
     viewModel {
         FavoriteViewModel(
+            galleryUseCase = get()
+        )
+    }
+
+    viewModel {
+        SearchViewModel(
             galleryUseCase = get()
         )
     }

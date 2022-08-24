@@ -14,6 +14,9 @@ interface GalleryDao {
     @Query("SELECT * FROM picture WHERE id=:pictureId")
     suspend fun getPicture(pictureId: String): Picture
 
+    @Query("SELECT * FROM picture WHERE title LIKE '%' || :query || '%'")
+    suspend fun search(query: String): List<Picture>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun savePicture(picture: Picture)
 
@@ -22,6 +25,9 @@ interface GalleryDao {
 
     @Delete
     suspend fun removePicture(picture: Picture)
+
+    @Query("DELETE FROM picture")
+    suspend fun clearAll()
 
     @Update
     suspend fun updatePicture(picture: Picture)

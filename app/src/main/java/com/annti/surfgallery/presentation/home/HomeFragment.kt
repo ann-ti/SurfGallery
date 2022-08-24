@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annti.surfgallery.R
 import com.annti.surfgallery.data.model.Picture
@@ -27,7 +26,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -60,7 +59,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
         viewModel.getGalleryListDb()
         viewModel.getGalleryList()
         viewModel.galleryList.observe(viewLifecycleOwner) {
-            adapterGallery?.items = it
+            adapterGallery.items = it
         }
 
         viewModel.error.observe(viewLifecycleOwner) {
@@ -68,7 +67,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GalleryAdapterDelegate.It
         }
     }
 
-    private fun goToSearch(){
+    private fun goToSearch() {
         binding.toolbar.setOnMenuItemClickListener {
             val navController = Navigation.findNavController(
                 requireActivity(),

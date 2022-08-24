@@ -21,6 +21,7 @@ interface AuthApi {
         @Body authRequest: AuthRequest
     ): TokenResponse
 
+    //TODO fix logout
     @POST("api/auth/logout")
     suspend fun logout()
 }

@@ -1,13 +1,9 @@
 package com.annti.surfgallery.utils
 
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
+
 import kotlinx.coroutines.channels.trySendBlocking
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 

@@ -11,6 +11,7 @@ interface GalleryUseCase {
     suspend fun savePicture(picture: Picture)
     suspend fun removePicture(picture: Picture)
     suspend fun updatePicture(picture: Picture)
+    suspend fun search(query: String): List<Picture>
 }
 
 class GalleryUseCaseImpl(
@@ -37,4 +38,8 @@ class GalleryUseCaseImpl(
     override suspend fun updatePicture(picture: Picture) {
         galleryRepository.updatePicture(picture)
     }
+
+    override suspend fun search(query: String): List<Picture> =
+        galleryRepository.search(query)
+
 }

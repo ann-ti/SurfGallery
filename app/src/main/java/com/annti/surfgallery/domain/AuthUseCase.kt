@@ -52,6 +52,7 @@ class AuthUseCaseImpl(
         return authRepository.login(phone, password)
     }
 
+    //TODO fix logout
     override suspend fun logout() {
         sessionRepository.saveSession(null)
         session = null

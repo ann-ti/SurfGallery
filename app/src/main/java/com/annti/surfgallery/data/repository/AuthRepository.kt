@@ -20,28 +20,30 @@ class AuthRepositoryImpl(
     private val authApi: AuthApi
 ) : AuthRepository {
 
-    override suspend fun login(login: String, password: String): Flow<Request<TokenResponse>>{
-        return requestFlow{
+    private val galleryDao = Database.instance.galleryDao()
+
+    override suspend fun login(login: String, password: String): Flow<Request<TokenResponse>> {
+        return requestFlow {
             val authResponse = authApi.login(AuthRequest(login, password))
             val user = authResponse.mapToDomain()
             user
         }
     }
 
+    //TODO fix logout: delete all info
     override suspend fun logout() {
         try {
             authApi.logout()
-
-        } catch (e: HttpException){
-            when (e.code()){
+            galleryDao.clearAll()
+        } catch (e: HttpException) {
+            when (e.code()) {
                 401 -> throw AppError(
                     AppError.Code.INVALID_LOGIN_OR_PASSWORD,
                     "Необходимо авторизоваться заново"
                 )
                 else -> throw e
             }
-        }
-        catch (e: Throwable){
+        } catch (e: Throwable) {
             e.message
         }
     }
